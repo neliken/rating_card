@@ -14,7 +14,7 @@
 
   <!-- Rating state start -->
   <div class="card rating" id="thanks_card">
-    <span>
+    <span class="start">
       <img src="./images/icon-star.svg" alt="">
     </span>
     <div class="text">
@@ -41,21 +41,42 @@
   <!-- Thank you state start -->
   <div class="card thanks" id="rating_card">
     <div><img src="./images/illustration-thank-you.svg" alt=""></div>
-    <p class="rate-number">You selected 4 out of 5</p>
+    <p class="rate-number"></p>
     <div class="text">
       <h1>Thank you!</h1>
       <p>
         We appreciate you taking the time to give a rating. If you ever need more support, 
-        don’t hesitate to get in touch!
+        don't hesitate to get in touch!
       </p>
     </div>
   </div>
   <!-- Thank you state end -->
 
   <script>
+    let rating = null;
+
     function myfunc(){
-      document.getElementById("rating_card").style.visibility = "visible";
+      if(rating === null) {
+        alert('Select a rating!');
+      }else{
+        document.getElementsByClassName("rate-number")[0].innerHTML = 'You selected '+ rating + ' out of 5';
+        document.getElementById("rating_card").style.visibility = "visible";
+      }
     }
+
+    const spans = document.querySelectorAll('span');
+
+    spans.forEach( span => span.addEventListener("click", (e) => {
+      deleteActive(spans);
+        e.target.classList.add('active');
+        rating = span.innerHTML;
+    }))
+    
+    function deleteActive(spans){
+      spans.forEach((span) => {
+      span.classList.remove('active');
+    })
+  }
   </script>
 </body>
 </html>

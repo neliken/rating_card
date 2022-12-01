@@ -36,9 +36,6 @@ body {
     justify-content: space-between;
 }
 
-.card.rating {
-    align-items: flex-start;
-}
 
 .card.thanks {
     align-items: center;
@@ -64,7 +61,9 @@ body {
 
 .card .rating-points {
     flex-direction: row;
-    /* align-items: center; */
+    justify-content: space-between;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .card span {
@@ -78,10 +77,27 @@ body {
     display: inline-flex;
     align-items: center; 
     justify-content: center;
+    margin: 9px;
 }
 
-.card span:hover {
+.card .rating-points span {
+    align-items: center;
+}
+
+.card .start {
+    align-self: flex-start;
+    margin: 0px;
+}
+
+
+.card .rating-points span:hover {
     background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.card .rating-points span.active {
+ background-color: var(--medium-grey);
+ color: white;
 }
 
 .card button {
@@ -94,6 +110,13 @@ body {
     height: 45px;
     letter-spacing: 2px;
     font-weight: 600;
+}
+
+.card button:hover {
+    background-color: white;
+    border-color: white;
+    color: var(--primary-color);
+    cursor: pointer;
 }
 
 .card.thanks .rate-number { 
